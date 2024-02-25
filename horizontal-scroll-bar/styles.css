@@ -1,0 +1,104 @@
+:root {
+  --scroll-bar-backgrouond-color: black;
+}
+
+body {
+  background-color: antiquewhite;
+  font-family: "Arial", sans-serif;
+  margin: 0px;
+}
+/* For desktop */
+@media (width >= 820px) {
+  .scroll-container {
+    font-size: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .scroll-container p {
+    padding: 2px 16px;
+  }
+}
+
+/* For tables */
+@media (600px < width < 820px) {
+  .scroll-container {
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .scroll-container p {
+    padding: 2px 12px;
+  }
+}
+
+/* For mobile phone */
+@media (600px > width) {
+  .scroll-container {
+    font-size: 16px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .scroll-container p {
+    padding: 2px 8px;
+  }
+}
+
+.scroll-container {
+  width: 100%;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--scroll-bar-backgrouond-color);
+}
+
+.scroll-container div {
+  display: flex;
+  gap: 2px;
+}
+
+.scroll-container p {
+  margin: 0px;
+  font-size: var(--scroll-bar-font-size);
+  font-weight: 200;
+  color: white;
+}
+
+.scroll-bar-content {
+  animation-name: scroll-auto-animation;
+  animation-duration: 10s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  /* When mouse hovering, the scroll bar paused  */
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+button {
+  padding: 0px 4px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  background-color: transparent;
+  border: 0px;
+}
+button:hover {
+  text-decoration: underline;
+  font-weight: 700px;
+}
+
+/* scroll animation from right to left */
+@keyframes scroll-auto-animation {
+  from {
+    -webkit-transform: translateX(-2%);
+    transform: translateX(-2%);
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
